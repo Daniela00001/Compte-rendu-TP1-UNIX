@@ -35,7 +35,7 @@ En retirant le #, j'ai activé la ligne, et en changeant prohibit-password par y
 Après avoir modifié la configuration, j'ai redémarré le service SSH pour que les modifications prennent effet :
 systemctl restart ssh
 Redémarrer le service SSH permet de recharger le fichier de configuration mis à jour et d'appliquer les nouvelles règles. Désormais, il est possible de se connecter à distance en tant que root avec un mot de passe.
-________________________________________
+_____________________________________________________________________________________________________________________________
 Connexion à la Machine Virtuelle depuis la Machine Hôte
 1. Vérification de l'adresse IP de la machine virtuelle
 Pour se connecter à la machine virtuelle depuis la machine hôte, il est nécessaire de connaître l'adresse IP de la machine virtuelle. J'ai utilisé la commande suivante pour afficher les interfaces réseau et trouver l'adresse IP :
@@ -64,7 +64,7 @@ ssh root@127.0.0.1 -p 2222
 
 ![image](https://github.com/user-attachments/assets/d9df784b-eb8f-4639-a045-f2578af4fb97)
 
-
+________________________________________________________________________________________________________________________________________________________
 Vérification des Paquets Installés et Configuration Système
 Pour connaître le nombre total de paquets installés sur la machine virtuelle, j'ai utilisé la commande suivante :
 dpkg -l | wc -l
@@ -99,8 +99,8 @@ hostname -d
 ![image](https://github.com/user-attachments/assets/ce5a97ca-57ff-4beb-bec1-657dda4cd72b)
 
 La commande hostname -d affiche le nom de domaine auquel la machine est associée, si elle est configurée dans un domaine. 
-________________________________________
 
+________________________________________________________________________________________________________________________________________________________
 Vérification des Dépôts APT et des Comptes Utilisateurs
 1. Vérification des dépôts APT activés
 Pour identifier les dépôts APT configurés sur la machine, j'ai utilisé la commande suivante :
@@ -122,6 +122,7 @@ Le fichier /etc/passwd contient les informations de base sur tous les comptes ut
 ![image](https://github.com/user-attachments/assets/89b2275f-863d-4d1a-b705-cc56353daa27)
 
 
+________________________________________________________________________________________________________________________________________________________
 Vérification des Partitions et de l'Utilisation de l'Espace Disque
 1. Vérification des partitions avec fdisk -l
 J'ai utilisé la commande suivante pour afficher la table des partitions et les informations sur le disque :
@@ -148,6 +149,7 @@ La commande df -h affiche une vue d'ensemble de l'utilisation de l'espace disque
 ![image](https://github.com/user-attachments/assets/855c0305-ddae-4d33-84bb-891c509f4e5d)
 
 
+________________________________________________________________________________________________________________________________________________________
 3. Aller plus loin
 Preseed :
 Le preseed est un fichier de configuration qui permet d'automatiser l'installation de Debian et dérivés. Cela sert à répondre automatiquement aux questions posées durant l'installation comme les paramètres de partitionnement, la configuration réseau, etc.
