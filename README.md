@@ -7,6 +7,9 @@ Installation Machine virtuelle
 Après avoir téléchargé mini.iso depuis le :
 https://ftp.lip6.fr/pub/linux/distributions/debian/dists/stable/main/installer-amd64/current/images/netboot/
 
+
+J'ai créé une nouvelle image virtuelle appelée "LicencePro2024". J'ai dû répéter les étapes d'installation plusieurs fois, car je rencontrais des problèmes dus au fait que je n'avais pas respecté les bonnes procédures d'installation.
+
 Configuration SSH sur la Machine Virtuelle
 1. Passage en mode root
 La première étape consiste à accéder aux privilèges d'administration. J'ai utilisé la commande suivante :
