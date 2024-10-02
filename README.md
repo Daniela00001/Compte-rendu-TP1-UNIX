@@ -16,11 +16,15 @@ J'ai créé une nouvelle image virtuelle appelée "LicencePro2024". J'ai dû sup
 Configuration SSH sur la Machine Virtuelle
 1. Passage en mode root
 La première étape consiste à accéder aux privilèges d'administration. J'ai utilisé la commande suivante :
-<pre> su - </pre>
+<pre> 
+  su - 
+</pre>
 Cette commande permet de passer en mode root en demandant le mot de passe du compte administrateur. Cela m'a permis d'obtenir les droits nécessaires pour effectuer les modifications système.
 2. Recherche du paquet SSH
 Ensuite, j'ai recherché le paquet nécessaire pour installer le serveur SSH en utilisant la commande :
-<pre>apt search ssh</pre>
+<pre>
+  apt search ssh
+</pre>
 Cette commande effectue une recherche dans les dépôts pour trouver les paquets relatifs à SSH, qui permet les connexions distantes. Le paquet que nous recherchions est openssh-server.
 
 3. Installation du serveur SSH
@@ -29,11 +33,17 @@ apt install openssh-server
 Cette commande installe le serveur SSH, qui permet de configurer des connexions distantes sécurisées vers la machine virtuelle.
 4. Modification du fichier de configuration SSH
 Après l'installation du serveur SSH, j'ai modifié sa configuration pour permettre les connexions root. J'ai ouvert le fichier de configuration SSH avec l'éditeur de texte nano :
-<pre>nano /etc/ssh/sshd_config</pre>
+<pre>
+  nano /etc/ssh/sshd_config
+</pre>
 À l'intérieur de ce fichier, j'ai cherché la ligne suivante :
-<pre>#PermitRootLogin prohibit-password</pre>
+<pre>
+  #PermitRootLogin prohibit-password
+</pre>
 Cette ligne, par défaut, est commentée désactive les connexions root avec un mot de passe. Pour autoriser ces connexions, j'ai modifié la ligne comme suit :
-<pre>PermitRootLogin yes</pre>
+<pre>
+  PermitRootLogin yes
+</pre>
 En retirant le #, j'ai activé la ligne, et en changeant prohibit-password par yes, j'ai permis les connexions root avec un mot de passe via SSH.
 5. Redémarrage du service SSH
 Après avoir modifié la configuration, j'ai redémarré le service SSH pour que les modifications prennent effet :
@@ -79,7 +89,9 @@ La commande dpkg -l liste tous les paquets installés sur le système, et la com
 
 2. Vérification de l'utilisation de l'espace disque
 Pour connaître l'espace disque utilisé sur la machine virtuelle, j'ai exécuté la commande suivante :
-<pre>df -h
+<pre>
+  df -h
+</pre>
 La commande df -h affiche l'utilisation de l'espace disque de manière lisible. Elle montre combien d'espace est utilisé et combien est disponible sur chaque partition du disque. 
 
 
@@ -89,7 +101,9 @@ La commande df -h affiche l'utilisation de l'espace disque de manière lisible. 
 
 3. Affichage des locales
 Pour vérifier la configuration de la langue locale sur la machine, j'ai utilisé cette commande :
-<pre>echo $LANG</pre>
+<pre>
+  echo $LANG
+</pre>
 La commande echo $LANG affiche la variable d'environnement LANG, qui indique la langue et la localisation configurée sur le système. Cela permet de savoir dans quel langage le système affiche ses messages et traite les formats régionaux.
 4. Vérification du nom de la machine
 Pour connaître le nom (hostname) de la machine virtuelle, j'ai utilisé la commande suivante :
@@ -98,30 +112,40 @@ La commande hostname retourne le nom actuel de la machine.  (serveur1)
 
 5. Vérification du domaine de la machine
 Si la machine est configurée avec un domaine, je peux l'afficher à l'aide de la commande suivante :
-<pre>hostname -d</pre>
+<pre>
+  hostname -d
+</pre>
 
 ![image](https://github.com/user-attachments/assets/ce5a97ca-57ff-4beb-bec1-657dda4cd72b)
 
-La commande <pre>hostname -d</pre> affiche le nom de domaine auquel la machine est associée, si elle est configurée dans un domaine. 
+La commande <pre>
+hostname -d
+</pre> affiche le nom de domaine auquel la machine est associée, si elle est configurée dans un domaine. 
 
 ________________________________________________________________________________________________________________________________________________________
 Vérification des Dépôts APT et des Comptes Utilisateurs
 1. Vérification des dépôts APT activés
 Pour identifier les dépôts APT configurés sur la machine, j'ai utilisé la commande suivante :
-<pre>cat /etc/apt/sources.list | grep -v -E '^#|^$'</pre>
+<pre>
+  cat /etc/apt/sources.list | grep -v -E '^#|^$'
+</pre>
 La commande cat /etc/apt/sources.list affiche le contenu du fichier qui contient les sources de dépôts APT pour l'installation de paquets. Ensuite, la commande grep -v -E '^#|^$' filtre les résultats pour exclure les lignes commentées (celles qui commencent par #) et les lignes vides. Cela permet d'obtenir une liste claire des dépôts actifs, nécessaires pour installer des paquets à partir d'Internet.
 ![image](https://github.com/user-attachments/assets/d09ddd55-a9f2-4714-9338-86c10340292b)
 
 2. Vérification des comptes dans /etc/shadow
 Pour voir les comptes ayant un mot de passe configuré sur la machine, j'ai utilisé la commande suivante :
-<pre>cat /etc/shadow | grep -vE ':\*:|:!\*:'</pre>
+<pre>
+  cat /etc/shadow | grep -vE ':\*:|:!\*:'
+</pre>
 Le fichier /etc/shadow contient les informations de sécurité pour les comptes utilisateurs, y compris les mots de passe chiffrés. La commande grep -vE ':\*:|:!\*:' exclut les lignes qui contiennent :* ou :!, ce qui signifie que ces comptes n'ont pas de mot de passe configuré. Ainsi, cette commande permet de lister uniquement les comptes avec un mot de passe valide.
 
 ![image](https://github.com/user-attachments/assets/bd582960-9c01-4a49-8cb6-4ff9b4fe6c42)
 
 3. Vérification des comptes utilisateurs dans /etc/passwd
 Pour afficher les comptes utilisateurs, à l'exclusion des comptes associés à des services ou des comptes qui ne peuvent pas se connecter directement, j'ai exécuté la commande suivante :
-<pre>cat /etc/passwd | grep -vE 'nologin|sync'</pre>
+<pre>
+  cat /etc/passwd | grep -vE 'nologin|sync'
+</pre>
 Le fichier /etc/passwd contient les informations de base sur tous les comptes utilisateurs du système. La commande grep -vE 'nologin|sync' filtre les résultats pour exclure les comptes avec des shells de connexion nologin (ceux qui ne peuvent pas se connecter) et le compte sync. Cela permet d’obtenir une liste claire des utilisateurs qui ont la possibilité de se connecter à la machine.
 ![image](https://github.com/user-attachments/assets/89b2275f-863d-4d1a-b705-cc56353daa27)
 
