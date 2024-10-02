@@ -20,7 +20,7 @@ La première étape consiste à accéder aux privilèges d'administration. J'ai 
 Cette commande permet de passer en mode root en demandant le mot de passe du compte administrateur. Cela m'a permis d'obtenir les droits nécessaires pour effectuer les modifications système.
 2. Recherche du paquet SSH
 Ensuite, j'ai recherché le paquet nécessaire pour installer le serveur SSH en utilisant la commande :
-" apt search ssh "
+<pre>apt search ssh</pre>
 Cette commande effectue une recherche dans les dépôts pour trouver les paquets relatifs à SSH, qui permet les connexions distantes. Le paquet que nous recherchions est openssh-server.
 
 3. Installation du serveur SSH
@@ -29,11 +29,11 @@ apt install openssh-server
 Cette commande installe le serveur SSH, qui permet de configurer des connexions distantes sécurisées vers la machine virtuelle.
 4. Modification du fichier de configuration SSH
 Après l'installation du serveur SSH, j'ai modifié sa configuration pour permettre les connexions root. J'ai ouvert le fichier de configuration SSH avec l'éditeur de texte nano :
-nano /etc/ssh/sshd_config
+<pre>nano /etc/ssh/sshd_config</pre>
 À l'intérieur de ce fichier, j'ai cherché la ligne suivante :
-#PermitRootLogin prohibit-password
+<pre>#PermitRootLogin prohibit-password</pre>
 Cette ligne, par défaut, est commentée désactive les connexions root avec un mot de passe. Pour autoriser ces connexions, j'ai modifié la ligne comme suit :
-PermitRootLogin yes
+<pre>PermitRootLogin yes</pre>
 En retirant le #, j'ai activé la ligne, et en changeant prohibit-password par yes, j'ai permis les connexions root avec un mot de passe via SSH.
 5. Redémarrage du service SSH
 Après avoir modifié la configuration, j'ai redémarré le service SSH pour que les modifications prennent effet :
