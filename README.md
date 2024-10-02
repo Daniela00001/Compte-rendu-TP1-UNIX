@@ -3,20 +3,24 @@
 Compte rendu TP1 UNIX
 
 Daniela Stinca
+
+
 Installation Machine virtuelle
+
+
 Après avoir téléchargé mini.iso depuis le :
 https://ftp.lip6.fr/pub/linux/distributions/debian/dists/stable/main/installer-amd64/current/images/netboot/
 
-J'ai créé une nouvelle image virtuelle appelée "LicencePro2024". J'ai dû supprimer et recréer la machine plusieurs fois, car je commettais des erreurs lors de l'installation en cochant les mauvaises options et en ne respectant pas les bonnes procédures.
+J'ai créé une nouvelle image virtuelle appelée "LicencePro2024". J'ai dû supprimer et recréer la machine plusieurs fois, car je commetais des erreurs lors de l'installation en cochant les mauvaises options et en ne respectant pas les bonnes procédures.
 
 Configuration SSH sur la Machine Virtuelle
 1. Passage en mode root
 La première étape consiste à accéder aux privilèges d'administration. J'ai utilisé la commande suivante :
-su -
+" su - "
 Cette commande permet de passer en mode root en demandant le mot de passe du compte administrateur. Cela m'a permis d'obtenir les droits nécessaires pour effectuer les modifications système.
 2. Recherche du paquet SSH
 Ensuite, j'ai recherché le paquet nécessaire pour installer le serveur SSH en utilisant la commande :
-apt search ssh
+" apt search ssh "
 Cette commande effectue une recherche dans les dépôts pour trouver les paquets relatifs à SSH, qui permet les connexions distantes. Le paquet que nous recherchions est openssh-server.
 
 3. Installation du serveur SSH
