@@ -7,8 +7,7 @@ Installation Machine virtuelle
 Après avoir téléchargé mini.iso depuis le :
 https://ftp.lip6.fr/pub/linux/distributions/debian/dists/stable/main/installer-amd64/current/images/netboot/
 
-
-J'ai créé une nouvelle image virtuelle appelée "LicencePro2024". J'ai dû répéter les étapes d'installation plusieurs fois, car je rencontrais des problèmes dus au fait que je n'avais pas respecté les bonnes procédures d'installation.
+J'ai créé une nouvelle image virtuelle appelée "LicencePro2024". J'ai dû supprimer et recréer la machine plusieurs fois, car je commettais des erreurs lors de l'installation en cochant les mauvaises options et en ne respectant pas les bonnes procédures.
 
 Configuration SSH sur la Machine Virtuelle
 1. Passage en mode root
@@ -43,6 +42,7 @@ Pour se connecter à la machine virtuelle depuis la machine hôte, il est néces
 ip a
 La commande ip a affiché toutes les interfaces réseau et leurs adresses IP associées. 
 J'ai repéré l'adresse IP sous l'interface réseau correspondante qui sera utilisée dans la commande SSH.
+Cependant je n'ai pas réussi à me connecter depuis ma machine hôte à la machine virtuelle, mais j'ai continué à avancer.
 *****************************************************************************************************************
 
 
