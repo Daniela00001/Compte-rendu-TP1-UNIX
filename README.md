@@ -42,10 +42,27 @@ Pour se connecter à la machine virtuelle depuis la machine hôte, il est néces
 ip a
 La commande ip a affiché toutes les interfaces réseau et leurs adresses IP associées. 
 J'ai repéré l'adresse IP sous l'interface réseau correspondante qui sera utilisée dans la commande SSH.
-Cependant je n'ai pas réussi à me connecter depuis ma machine hôte à la machine virtuelle, mais j'ai continué à avancer.
-*****************************************************************************************************************
+
+J'ai configuré une redirection de port dans VirtualBox pour permettre l'accès SSH à ma machine virtuelle depuis l'hôte. Pour cela, j'ai redirigé le port 2222 sur la machine hôte vers le port 22 de la machine virtuelle.
+
+Configuration de la redirection de port :
+
+Port hôte : 2222
+Port invité : 22
+
+Après avoir complété la redirection de port, j'ai redémarré la machine virtuelle pour m'assurer que les paramètres de réseau et le serveur SSH étaient bien pris en compte.
+
+Ensuite j'ai créé une paire de clés SSH pour faciliter les connexions sécurisées. Pour ce faire, j'ai utilisé la commande suivante dans le terminal de ma machine hôte (Windows) :ssh-keygen -t rsa
 
 
+![image](https://github.com/user-attachments/assets/f048dd4d-cd79-42fd-8698-e504625e6e23)
+
+Dans un terminal sur ma machine hôte (Windows), j'ai utilisé la commande SSH pour me connecter à la machine virtuelle. Voici la commande utilisée :
+ssh root@127.0.0.1 -p 2222
+
+
+
+![image](https://github.com/user-attachments/assets/d9df784b-eb8f-4639-a045-f2578af4fb97)
 
 
 Vérification des Paquets Installés et Configuration Système
