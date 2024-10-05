@@ -148,7 +148,6 @@ La commande fdisk -l permet de lister toutes les partitions présentes sur les d
 La taille de chaque partition
 Le type de système de fichiers
 Les points de montage Cela m'a permis d'avoir un aperçu clair de la structure des partitions sur le système.
-![image](https://github.com/user-attachments/assets/e86c36f8-2335-4268-8789-5454a987b7f7)
 
 2. Analyse détaillée des partitions avec fdisk -x
 Pour obtenir des détails supplémentaires sur la géométrie et les structures de disque, j'ai utilisé la commande :
