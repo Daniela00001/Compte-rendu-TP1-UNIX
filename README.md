@@ -170,10 +170,65 @@ Le preseed est un fichier de configuration qui permet d'automatiser l'installati
 Rescue Mode : 
 Si le mot de passe root est oublié, on peut redémarrer la machine virtuelle en mode "rescue" ou "recovery" et suivre les étapes pour changer le mot de passe :
 
--Redémarrer la machine.
--Accèder au mode "rescue" dans GRUB.
--Une fois dans le mode "rescue", on utilise la commande suivante pour réinitialiser le mot de passe root :
-passwd root
-Redimensionner une partition : 
-Pour redimensionner la partition racine sans réinstaller, on peut utiliser gparted ou les outils resize2fs et fdisk. Il faut démonter la partition, redimensionner avec fdisk, puis ajuster avec resize2fs.
+Étapes pour Changer le Mot de Passe Root
+Redémarrer la machine.
+Accéder au mode "rescue" dans GRUB :
+Appuyer sur Shift pour afficher le menu GRUB au démarrage.
+Sélectionner l'option pour démarrer en mode "rescue" ou "recovery".
+
+Changer le mot de passe root :
+Une fois dans le mode "rescue", exécuter la commande suivante :
+
+<pre>passwd root</pre>
+
+____________________________________________________________________________
+
+Redimensionnement de la Partition :
+Pour redimensionner la partition racine sans réinstaller le système, il est recommandé d’utiliser des outils tels que gparted, fdisk, et resize2fs. 
+
+Sauvegarde des Données :
+
+Avant de commencer, il est important de sauvegarder toutes les données importantes pour éviter toute perte.
+
+Démarrer avec un Live CD/USB :
+
+Démarrer la machine à partir d’un Live CD/USB contenant un système Linux.
+Ouvrir un Terminal.
+
+Vérifier l'Espace et les Partitions :
+
+Exécuter <pre>df -h </pre> pour vérifier l'utilisation de l'espace disque.
+Utiliser <pre>fdisk -l </pre> pour afficher les partitions disponibles :
+
+<pre>fdisk -l /dev/sda </pre>
+
+
+Utiliser fdisk pour Redimensionner :
+
+<pre>fdisk /dev/sda</pre>
+
+Supprimer la partition actuelle
+<pre>d </pre>
+
+
+Créer une nouvelle partition avec le même numéro de secteur de départ :
+
+<pre> n </pre>
+
+
+Après avoir créé la nouvelle partition, écrire les changements :
+
+<pre> w </pre>
+
+Redémarrer la machine pour que le noyau prenne en compte les nouvelles partitions.
+
+
+Une fois le système redémarré, exécuter resize2fs pour ajuster le système de fichiers à la nouvelle taille : 
+
+<pre> resize2fs /dev/sda1 </pre>
+
+
+Utiliser <pre>df -h </pre> pour confirmer que la taille de la partition a été ajustée correctement.
+
+
 
