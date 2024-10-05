@@ -76,7 +76,8 @@ Vérification des Paquets Installés et Configuration Système
 Pour connaître le nombre total de paquets installés sur la machine virtuelle, j'ai utilisé la commande suivante :
 <pre>dpkg -l | wc -l</pre>
 La commande dpkg -l liste tous les paquets installés sur le système, et la commande wc -l permet de compter le nombre total de lignes. Cela me permet de vérifier que 349 paquets sont installés sur la machine.
-![image](https://github.com/user-attachments/assets/20d32bd1-4bfc-45df-bf60-913d67c6784b)
+
+![aad](https://github.com/user-attachments/assets/b7a5fe83-5c80-4685-b2f2-3590c54eb80b)
 
 
 
