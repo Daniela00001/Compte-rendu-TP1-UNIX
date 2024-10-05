@@ -108,8 +108,7 @@ Si la machine est configurée avec un domaine, je peux l'afficher à l'aide de l
 <pre>
   hostname -d
 </pre>
-
-![image](https://github.com/user-attachments/assets/ce5a97ca-57ff-4beb-bec1-657dda4cd72b)
+Cela donne : ufr-info-p6.jussieu.fr
 
 La commande <pre>
 hostname -d
@@ -132,16 +131,12 @@ Pour voir les comptes ayant un mot de passe configuré sur la machine, j'ai util
 </pre>
 Le fichier /etc/shadow contient les informations de sécurité pour les comptes utilisateurs, y compris les mots de passe chiffrés. La commande grep -vE ':\*:|:!\*:' exclut les lignes qui contiennent :* ou :!, ce qui signifie que ces comptes n'ont pas de mot de passe configuré. Ainsi, cette commande permet de lister uniquement les comptes avec un mot de passe valide.
 
-![image](https://github.com/user-attachments/assets/bd582960-9c01-4a49-8cb6-4ff9b4fe6c42)
-
 3. Vérification des comptes utilisateurs dans /etc/passwd
 Pour afficher les comptes utilisateurs, à l'exclusion des comptes associés à des services ou des comptes qui ne peuvent pas se connecter directement, j'ai exécuté la commande suivante :
 <pre>
   cat /etc/passwd | grep -vE 'nologin|sync'
 </pre>
 Le fichier /etc/passwd contient les informations de base sur tous les comptes utilisateurs du système. La commande grep -vE 'nologin|sync' filtre les résultats pour exclure les comptes avec des shells de connexion nologin (ceux qui ne peuvent pas se connecter) et le compte sync. Cela permet d’obtenir une liste claire des utilisateurs qui ont la possibilité de se connecter à la machine.
-![image](https://github.com/user-attachments/assets/89b2275f-863d-4d1a-b705-cc56353daa27)
-
 
 ________________________________________________________________________________________________________________________________________________________
 Vérification des Partitions et de l'Utilisation de l'Espace Disque
@@ -160,15 +155,12 @@ Pour obtenir des détails supplémentaires sur la géométrie et les structures 
 La commande fdisk -x offre une analyse plus approfondie que fdisk -l. Elle fournit des informations avancées sur la disposition physique des disques, telles que :
 Le nombre de cylindres
 Le nombre de têtes et de secteurs. Cette information est utile pour examiner la structure des partitions et pour effectuer des opérations de partitionnement plus complexes si nécessaire.
-![image](https://github.com/user-attachments/assets/d4b07505-d004-491a-b11b-d4a4406d3451)
 
 
 3. Vérification de l'utilisation de l'espace disque avec df -h
 J'ai également vérifié l'utilisation de l'espace disque sur la machine avec la commande :
 <pre>df -h</pre>
 La commande df -h affiche une vue d'ensemble de l'utilisation de l'espace disque sur toutes les partitions. Avec l'option -h, les tailles sont présentées de manière lisible pour l'humain. Cela permet d'identifier combien d'espace est utilisé et combien reste disponible sur chaque partition, ce qui est essentiel pour la gestion de l'espace disque.
-![image](https://github.com/user-attachments/assets/855c0305-ddae-4d33-84bb-891c509f4e5d)
-
 
 ________________________________________________________________________________________________________________________________________________________
 3. Aller plus loin
