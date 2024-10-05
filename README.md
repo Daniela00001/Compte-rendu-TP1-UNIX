@@ -68,20 +68,13 @@ Après avoir complété la redirection de port, j'ai redémarré la machine virt
 
 Ensuite j'ai créé une paire de clés SSH pour faciliter les connexions sécurisées. Pour ce faire, j'ai utilisé la commande suivante dans le terminal de ma machine hôte (Windows) :ssh-keygen -t rsa
 
-
-![image](https://github.com/user-attachments/assets/f048dd4d-cd79-42fd-8698-e504625e6e23)
-
 Dans un terminal sur ma machine hôte (Windows), j'ai utilisé la commande SSH pour me connecter à la machine virtuelle. Voici la commande utilisée :
-ssh root@127.0.0.1 -p 2222
-
-
-
-![image](https://github.com/user-attachments/assets/d9df784b-eb8f-4639-a045-f2578af4fb97)
+<pre>ssh root@127.0.0.1 -p 2222</pre>
 
 ________________________________________________________________________________________________________________________________________________________
 Vérification des Paquets Installés et Configuration Système
 Pour connaître le nombre total de paquets installés sur la machine virtuelle, j'ai utilisé la commande suivante :
-dpkg -l | wc -l
+<pre>dpkg -l | wc -l</pre>
 La commande dpkg -l liste tous les paquets installés sur le système, et la commande wc -l permet de compter le nombre total de lignes. Cela me permet de vérifier que 349 paquets sont installés sur la machine.
 ![image](https://github.com/user-attachments/assets/20d32bd1-4bfc-45df-bf60-913d67c6784b)
 
